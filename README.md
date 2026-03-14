@@ -414,6 +414,7 @@ If you use this project in research or publications:
 
 ---
 
-**🇪🇹 Built with ❤️ for the Ethiopian tech community and ML learners worldwide**
+**🇪🇹 Built for the Ethiopian tech community and ML learners worldwide**
 
+** Letera Tujo Developer **
 </div>
