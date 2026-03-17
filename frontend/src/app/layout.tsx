@@ -1,37 +1,86 @@
 import type { Metadata } from 'next';
 import { Inter, Poppins } from 'next/font/google';
 import './globals.css';
-import { Toaster } from 'react-hot-toast';
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
 });
 
-const poppins = Poppins({ 
+const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700', '800'],
   variable: '--font-poppins',
 });
 
 export const metadata: Metadata = {
   title: 'Ethiopian Salary Predictor | ML-Powered Salary Insights',
-  description: 'Predict tech salaries in Ethiopia using machine learning. Get accurate salary estimates based on experience, education, and location.',
-  keywords: 'Ethiopia, salary prediction, tech jobs, machine learning, career planning',
+  description: 'Predict tech salaries in Ethiopia using machine learning. Get accurate salary estimates based on experience, education, and location with 86% accuracy.',
+  keywords: 'Ethiopia, salary prediction, tech jobs, machine learning, career planning, Addis Ababa, tech salaries, ML prediction',
   authors: [{ name: 'Ethiopian Tech Salary ML Team' }],
+  creator: 'Ethiopian Tech Salary ML',
+  publisher: 'Ethiopian Tech Salary ML',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://ethiopiansalary.ml'),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: 'Ethiopian Salary Predictor',
-    description: 'ML-powered salary prediction for Ethiopian tech professionals',
+    title: 'Ethiopian Salary Predictor | ML-Powered Salary Insights',
+    description: 'Predict tech salaries in Ethiopia using machine learning. Get accurate salary estimates based on experience, education, and location.',
     type: 'website',
     locale: 'en_US',
+    url: 'https://ethiopiansalary.ml',
+    siteName: 'Ethiopian Salary Predictor',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Ethiopian Salary Predictor',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Ethiopian Salary Predictor',
     description: 'ML-powered salary prediction for Ethiopian tech professionals',
+    creator: '@ethiopiansalary',
+    images: ['/twitter-image.png'],
   },
-  viewport: 'width=device-width, initial-scale=1',
-  robots: 'index, follow',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/manifest.json',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f8fafc' },
+    { media: '(prefers-color-scheme: dark)', color: '#0f172a' },
+  ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code',
+  },
 };
 
 export default function RootLayout({
@@ -40,35 +89,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
-      <body className="font-sans antialiased bg-gray-50">
-        <div className="min-h-screen">
-          {children}
-        </div>
-        <Toaster 
-          position="top-right"
-          toastOptions={{
-            duration: 4000,
-            style: {
-              background: '#363636',
-              color: '#fff',
-            },
-            success: {
-              duration: 3000,
-              iconTheme: {
-                primary: '#22c55e',
-                secondary: '#fff',
-              },
-            },
-            error: {
-              duration: 5000,
-              iconTheme: {
-                primary: '#ef4444',
-                secondary: '#fff',
-              },
-            },
-          }}
-        />
+    <html lang="en" className={`${inter.variable} ${poppins.variable}`} suppressHydrationWarning>
+      <body className="font-sans antialiased bg-gray-50 dark:bg-dark-950 text-gray-900 dark:text-white transition-colors duration-300">
+        {children}
       </body>
     </html>
   );
