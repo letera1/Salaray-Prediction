@@ -7,11 +7,10 @@ import {
   CodeBracketIcon,
   ChartBarIcon,
   GlobeAltIcon,
-  GithubIcon,
   EnvelopeIcon,
   MapPinIcon,
 } from '@heroicons/react/24/outline';
-import { GithubIcon as GithubIconSolid } from '@heroicons/react/24/solid';
+import { Github } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -62,7 +61,7 @@ export default function Footer() {
     {
       name: 'GitHub',
       href: 'https://github.com/your-username/ethiopian-tech-salary-ml',
-      icon: GithubIconSolid,
+      icon: Github,
       color: 'hover:text-gray-900 dark:hover:text-white',
     },
     {
