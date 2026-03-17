@@ -74,7 +74,7 @@ export default function StatsSection({ stats }: StatsSectionProps) {
           className="text-center mb-16"
         >
           <div className="inline-flex items-center space-x-2 bg-green-100 dark:bg-green-900/30 px-4 py-2 rounded-full mb-4">
-            <TrendingUpIcon className="w-5 h-5 text-green-600 dark:text-green-400" />
+            <ArrowTrendingUpIcon className="w-5 h-5 text-green-600 dark:text-green-400" />
             <span className="text-sm font-semibold text-green-700 dark:text-green-400">
               Data Overview
             </span>

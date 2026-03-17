@@ -7,12 +7,12 @@ import {
   ChartBarIcon,
   InformationCircleIcon,
   CalendarIcon,
-  DownloadIcon,
+  ArrowDownTrayIcon,
   ShareIcon,
   CheckCircleIcon,
   ArrowPathIcon,
-  TrendingUpIcon,
-  TrendingDownIcon,
+  ArrowTrendingUpIcon,
+  ArrowTrendingDownIcon,
 } from '@heroicons/react/24/outline';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 
@@ -148,9 +148,9 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
             }`}
           >
             {isAboveMedian ? (
-              <TrendingUpIcon className="w-5 h-5" />
+              <ArrowTrendingUpIcon className="w-5 h-5" />
             ) : (
-              <TrendingDownIcon className="w-5 h-5" />
+              <ArrowTrendingDownIcon className="w-5 h-5" />
             )}
             <span className="font-semibold">
               {isAboveMedian ? '+' : ''}{differencePercent}% {isAboveMedian ? 'above' : 'below'} market median
@@ -318,7 +318,7 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          <DownloadIcon className="w-5 h-5" />
+          <ArrowDownTrayIcon className="w-5 h-5" />
           <span>Save Results</span>
         </motion.button>
 

@@ -11,7 +11,7 @@ import {
   AcademicCapIcon,
   BriefcaseIcon,
   CurrencyDollarIcon,
-  PieChartIcon,
+  ChartPieIcon,
 } from '@heroicons/react/24/outline';
 import {
   BarChart,
@@ -265,7 +265,7 @@ export default function InsightsSection() {
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 bg-gradient-to-br from-ethiopia-500 to-ethiopia-600 rounded-xl flex items-center justify-center shadow-lg">
-                  <PieChartIcon className="w-6 h-6 text-white" />
+                  <ChartPieIcon className="w-6 h-6 text-white" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white">

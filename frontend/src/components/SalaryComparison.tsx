@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { apiService } from '@/services/api';
 import {
-  ArrowRightLeftIcon,
+  ArrowsRightLeftIcon,
   PlusIcon,
   TrashIcon,
   ChartBarIcon,
@@ -182,7 +182,7 @@ export default function SalaryComparison() {
           className="text-center mb-16"
         >
           <div className="inline-flex items-center space-x-2 bg-ethiopia-100 dark:bg-ethiopia-900/30 px-4 py-2 rounded-full mb-4">
-            <ArrowRightLeftIcon className="w-5 h-5 text-ethiopia-600 dark:text-ethiopia-400" />
+            <ArrowsRightLeftIcon className="w-5 h-5 text-ethiopia-600 dark:text-ethiopia-400" />
             <span className="text-sm font-semibold text-ethiopia-700 dark:text-ethiopia-400">
               Compare & Analyze
             </span>

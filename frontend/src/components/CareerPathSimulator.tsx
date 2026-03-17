@@ -10,7 +10,7 @@ import {
   ChartBarIcon,
   ArrowUpIcon,
 } from '@heroicons/react/24/outline';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine, Legend } from 'recharts';
 
 interface CareerScenario {
   years: number;
@@ -184,7 +184,7 @@ export default function CareerPathSimulator() {
           className="text-center mb-16"
         >
           <div className="inline-flex items-center space-x-2 bg-purple-100 dark:bg-purple-900/30 px-4 py-2 rounded-full mb-4">
-            <TrendingUpIcon className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+            <ArrowTrendingUpIcon className="w-5 h-5 text-purple-600 dark:text-purple-400" />
             <span className="text-sm font-semibold text-purple-700 dark:text-purple-400">
               Career Planning
             </span>
@@ -524,7 +524,7 @@ export default function CareerPathSimulator() {
             ) : (
               <div className="card-glass backdrop-blur-xl p-12 rounded-3xl border border-white/40 dark:border-dark-700/50 shadow-soft-lg text-center">
                 <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-primary-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-lg">
-                  <TrendingUpIcon className="w-10 h-10 text-white" />
+                  <ArrowTrendingUpIcon className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                   Ready to Simulate Your Career
