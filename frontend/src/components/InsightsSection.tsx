@@ -6,7 +6,7 @@ import { apiService } from '@/services/api';
 import { SalaryInsights } from '@/types';
 import { 
   ChartBarIcon, 
-  TrendingUpIcon, 
+  ArrowTrendingUpIcon, 
   MapPinIcon,
   AcademicCapIcon 
 } from '@heroicons/react/24/outline';
@@ -182,7 +182,7 @@ export default function InsightsSection() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="card text-center bg-gradient-to-br from-primary-50 to-white"
           >
-            <TrendingUpIcon className="w-8 h-8 text-primary-600 mx-auto mb-3" />
+            <ArrowTrendingUpIcon className="w-8 h-8 text-primary-600 mx-auto mb-3" />
             <div className="text-2xl font-bold text-primary-600 mb-1">
               {(insights.experience_correlation * 100).toFixed(0)}%
             </div>
