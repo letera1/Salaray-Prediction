@@ -7,7 +7,7 @@ import {
   CurrencyDollarIcon,
   MapPinIcon,
   AcademicCapIcon,
-  TrendingUpIcon,
+  ArrowTrendingUpIcon,
   BriefcaseIcon,
 } from '@heroicons/react/24/outline';
 

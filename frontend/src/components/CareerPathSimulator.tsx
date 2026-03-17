@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { apiService } from '@/services/api';
 import {
-  TrendingUpIcon,
+  ArrowTrendingUpIcon,
   AcademicCapIcon,
   BriefcaseIcon,
   ChartBarIcon,
