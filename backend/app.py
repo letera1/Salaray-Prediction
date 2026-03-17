@@ -12,6 +12,7 @@ import pandas as pd
 import numpy as np
 import joblib
 import os
+from pathlib import Path
 from datetime import datetime
 import logging
 
@@ -38,8 +39,9 @@ app.add_middleware(
 )
 
 # Load the trained model and data
-MODEL_PATH = os.getenv("MODEL_PATH", "/app/models/best_ethiopian_salary_model.pkl")
-DATA_PATH = os.getenv("DATA_PATH", "/app/data/raw/ethiopia_salary_data.csv")
+BASE_DIR = Path(__file__).resolve().parent.parent
+MODEL_PATH = os.getenv("MODEL_PATH", str(BASE_DIR / "models" / "best_ethiopian_salary_model.pkl"))
+DATA_PATH = os.getenv("DATA_PATH", str(BASE_DIR / "data" / "raw" / "ethiopia_salary_data.csv"))
 
 try:
     model = joblib.load(MODEL_PATH)
@@ -224,4 +226,4 @@ async def get_salary_insights():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
