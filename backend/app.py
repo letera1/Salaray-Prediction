@@ -38,8 +38,8 @@ app.add_middleware(
 )
 
 # Load the trained model and data
-MODEL_PATH = "best_ethiopian_salary_model.pkl"
-DATA_PATH = "ethiopia_salary_data.csv"
+MODEL_PATH = os.getenv("MODEL_PATH", "/app/models/best_ethiopian_salary_model.pkl")
+DATA_PATH = os.getenv("DATA_PATH", "/app/data/raw/ethiopia_salary_data.csv")
 
 try:
     model = joblib.load(MODEL_PATH)

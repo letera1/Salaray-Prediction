@@ -12,8 +12,8 @@ services:
       - PYTHONPATH=/app
       - ENVIRONMENT=production
     volumes:
-      - ./best_ethiopian_salary_model.pkl:/app/best_ethiopian_salary_model.pkl
-      - ./ethiopia_salary_data.csv:/app/ethiopia_salary_data.csv
+      - ./models:/app/models:ro
+      - ./data:/app/data:ro
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]

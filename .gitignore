@@ -1,0 +1,66 @@
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# ── Virtual environments ───────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ── Jupyter ────────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ── ML artifacts (large binary files — track via DVC or Git LFS if needed) ────
+models/*.pkl
+models/*.joblib
+models/*.h5
+models/*.pt
+models/*.onnx
+
+# ── Data (raw data should not be committed — store externally or use DVC) ──────
+data/raw/*.csv
+data/processed/
+data/interim/
+
+# ── Generated reports / logs ───────────────────────────────────────────────────
+reports/
+*.log
+model_training.log
+data_validation.log
+validation_reports/
+model_outputs/
+
+# ── Environment variables ──────────────────────────────────────────────────────
+.env
+.env.local
+.env.production
+
+# ── Node.js / Next.js ─────────────────────────────────────────────────────────
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.env.local
+
+# ── OS & Editor ───────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ── Docker ────────────────────────────────────────────────────────────────────
+.docker/
+ssl/
