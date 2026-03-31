@@ -21,21 +21,30 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Initialize FastAPI app
+
+import os
+IS_PROD = os.getenv("ENVIRONMENT", "development") == "production"
 app = FastAPI(
     title="Ethiopian Salary Prediction API",
     description="ML-powered salary prediction for Ethiopian tech professionals",
     version="1.0.0",
-    docs_url="/docs",
-    redoc_url="/redoc"
+    docs_url=None if IS_PROD else "/docs",
+    redoc_url=None if IS_PROD else "/redoc",
+    openapi_url=None if IS_PROD else "/openapi.json"
 )
 
 # Configure CORS
+ALLOWED_ORIGINS = [
+    "https://your-frontend-domain.com"
+]
+if not IS_PROD:
+    ALLOWED_ORIGINS += ["http://localhost:3000", "http://localhost:3001"]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:3001", "https://your-frontend-domain.com"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Authorization", "Content-Type", "Accept"],
 )
 
 # Load the trained model and data
@@ -147,8 +156,8 @@ async def predict_salary(request: SalaryPredictionRequest):
         )
         
     except Exception as e:
-        logger.error(f"Prediction error: {e}")
-        raise HTTPException(status_code=400, detail=f"Prediction failed: {str(e)}")
+        logger.error("Prediction error occurred.")
+        raise HTTPException(status_code=400, detail="Prediction failed.")
 
 @app.get("/stats", response_model=DataStatsResponse)
 async def get_data_stats():
