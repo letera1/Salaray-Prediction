@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # Backend API
   backend:
@@ -11,6 +9,8 @@ services:
     environment:
       - PYTHONPATH=/app
       - ENVIRONMENT=production
+      - MODEL_PATH=/app/models/best_ethiopian_salary_model.pkl
+      - DATA_PATH=/app/data/raw/ethiopia_salary_data.csv
     volumes:
       - ./models:/app/models:ro
       - ./data:/app/data:ro
@@ -28,16 +28,17 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
       args:
-        - NEXT_PUBLIC_API_URL=http://backend:8000
+        - NEXT_PUBLIC_API_URL=/api
     ports:
       - "3000:3000"
     environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - NEXT_PUBLIC_API_URL=/api
+      - BACKEND_URL=http://backend:8000
     depends_on:
       - backend
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -51,7 +52,6 @@ services:
       - "443:443"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
-      - ./ssl:/etc/nginx/ssl
     depends_on:
       - frontend
       - backend

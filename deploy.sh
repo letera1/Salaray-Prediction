@@ -38,17 +38,17 @@ check_requirements() {
     
     local missing_files=()
     
-    if [ ! -f "ethiopia_salary_data.csv" ]; then
-        missing_files+=("ethiopia_salary_data.csv")
+    if [ ! -f "data/raw/ethiopia_salary_data.csv" ] && [ ! -f "data/ethiopia_salary_data.csv" ]; then
+        missing_files+=("data/raw/ethiopia_salary_data.csv")
     fi
     
-    if [ ! -f "best_ethiopian_salary_model.pkl" ]; then
-        print_warning "Model file not found. Training model..."
-        python ethiopia_salary_prediction.py
+    if [ ! -f "models/best_ethiopian_salary_model.pkl" ]; then
+        missing_files+=("models/best_ethiopian_salary_model.pkl")
     fi
     
     if [ ${#missing_files[@]} -ne 0 ]; then
         print_error "Missing required files: ${missing_files[*]}"
+        print_error "Please ensure you have generated the model and the data file is present."
         exit 1
     fi
     
